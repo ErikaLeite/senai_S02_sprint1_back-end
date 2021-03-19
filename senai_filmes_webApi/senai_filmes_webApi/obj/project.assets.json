@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
+      "projectUniqueName": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_S02_sprint1_back-end\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
       "projectName": "senai_filmes_webApi",
-      "projectPath": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
+      "projectPath": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_S02_sprint1_back-end\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
       "packagesPath": "C:\\Users\\erika\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_filmes_webApi\\senai_filmes_webApi\\obj\\",
+      "outputPath": "C:\\Users\\erika\\Desktop\\PROJETOS SENAI\\Semestre_02\\Sprint02 - Back-End\\senai_S02_sprint1_back-end\\senai_filmes_webApi\\senai_filmes_webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erika\\AppData\\Roaming\\NuGet\\NuGet.Config",
