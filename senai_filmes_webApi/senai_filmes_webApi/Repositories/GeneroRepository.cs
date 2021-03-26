@@ -47,7 +47,17 @@ namespace senai_filmes_webApi.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDelete = "DELETE FROM Genero WHERE IdGenero = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<GeneroDomain> ListarTodos()

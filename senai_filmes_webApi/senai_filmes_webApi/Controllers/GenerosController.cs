@@ -50,6 +50,13 @@ namespace senai_filmes_webApi.Controllers
             return StatusCode(201);
         }
 
+        [HttpDelete ("{id}")]
+        public IActionResult Delete (int id)
+        {
+            _generoRepository.Deletar(id);
+
+            return StatusCode(204);
+        }
 
     }
 }
