@@ -33,9 +33,11 @@ namespace senai_filmes_webApi.Repositories
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryInsert = "INSERT INTO Genero(Nome) VALUES('"+novoGenero.nome+"')";
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES(@Nome)";
                 using(SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
+                    //passa o valor cadastrado para o @Nome
+                    cmd.Parameters.AddWithValue("@Nome", novoGenero.nome);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
