@@ -42,6 +42,14 @@ namespace senai_filmes_webApi.Controllers
             return Ok(listaGenero);
         }
 
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+            _generoRepository.Cadastrar(novoGenero);
+
+            return StatusCode(201);
+        }
+
 
     }
 }

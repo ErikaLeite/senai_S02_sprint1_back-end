@@ -40,28 +40,34 @@ namespace senai_filmes_webApi.Repositories
         {
             List<FilmeDomain> listaFilme = new List<FilmeDomain>();
 
-            
+            //Declaramos um objeto da biblioteca SQLConnection para utlizarmos a string de acesso ao BD, ao término da operação o using desconecta do servidor BD
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                
-                string querySelectAll = "SELECT idFilme, codGenero,Titulo FROM Filme";
+                //string de comandos ao BD
+                string querySelectAll = "SELECT idFilme, codGenero, Titulo FROM Filme";
+
                 con.Open();
-                
+
+                //Criamos um leitor de dados para que haja retorno de informações do BD para o Back-End
                 SqlDataReader rdr;
-                
+
+                // À partir deste ponto, iremos fazer comandos dentro do BD
                 using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
                 {
+                    //o cmd irá armazenar em rdr as informações dos parametros da conexao
                     rdr = cmd.ExecuteReader();
-                                        
+
+                    //Enquanto houverem registros no banco, o laço irá se repetir
                     while (rdr.Read())
-                    {                        
+                    {
+                        //O novo objeto irá coletar as propriedades do Domain (posição 0 - ID / posição 1 - Nome)
                         FilmeDomain filme = new FilmeDomain()
                         {
                             idFilme  = Convert.ToInt32(rdr[0]),
                             idGenero = Convert.ToInt32(rdr[1]),
                             titulo   = rdr[2].ToString()
                         };
-                        
+                        //Após a coleta dos dados, o método abaixo os adiciona à lista
                         listaFilme.Add(filme);
                     }
                 }
