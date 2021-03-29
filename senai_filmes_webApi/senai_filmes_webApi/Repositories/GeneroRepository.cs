@@ -16,17 +16,64 @@ namespace senai_filmes_webApi.Repositories
         private string stringConexao = "Data Source = ERIKALEITE; initial catalog = Filme; user Id= sa; pwd=1801";
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdtateBody = "UPDATE Genero SET Nome = @Nome WHERE idGenero = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdtateBody, con))
+                {
+                    cmd.Parameters.AddWithValue("@Nome", genero.nome);
+                    cmd.Parameters.AddWithValue("@ID", genero.idGenero);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdtateUrl = "UPDATE Genero SET Nome = @Nome WHERE idGenero = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdtateUrl, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@Nome", genero.nome);
+                    
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public GeneroDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectById = "SELECT idGenero, Nome FROM Genero WHERE idGenero = @ID";
+
+                con.Open();
+
+                SqlDataReader rdr;
+                using(SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain generoPesquisado = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(rdr["idGenero"]),
+                            nome     = rdr["Nome"].ToString()
+                        };
+                        return generoPesquisado;
+                    }
+                    return null;
+                }
+            }
         }
 
         public void Cadastrar(GeneroDomain novoGenero)

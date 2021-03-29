@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 /// Classe reponsável pelos EndPoints (URLs)
 /// </summary>
 namespace senai_filmes_webApi.Controllers
-{   
+{
     //irá gerar a resposta no formato json
     [Produces("application/json")]
 
@@ -50,12 +50,76 @@ namespace senai_filmes_webApi.Controllers
             return StatusCode(201);
         }
 
-        [HttpDelete ("{id}")]
-        public IActionResult Delete (int id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
             _generoRepository.Deletar(id);
 
             return StatusCode(204);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetByID(int id)
+        {
+            GeneroDomain generoPesquisado = _generoRepository.BuscarPorId(id);
+            if (generoPesquisado == null)
+            {
+                return NotFound("Nenhhum gênero foi localizado.");
+            }
+
+            return Ok(generoPesquisado);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PutUrl (int id, GeneroDomain generoAtualizado)
+        {
+            GeneroDomain generoUrl = _generoRepository.BuscarPorId(id);
+
+            _generoRepository.AtualizarIdUrl(id, generoAtualizado);
+
+            if (generoUrl == null)
+            {
+                return NotFound
+                    (new 
+                    {
+                        mensagem = "Gênero não localizado.",
+                        erro     = true
+                    }
+                    );
+            } 
+
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, generoAtualizado);
+                return NoContent();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+
+        }
+
+        [HttpPut]
+        public IActionResult PutBody (GeneroDomain generoAtualizado)
+        {
+            GeneroDomain generoBuscado = _generoRepository.BuscarPorId(generoAtualizado.idGenero);
+
+            if (generoBuscado != null)
+            {
+                try
+                {
+                    _generoRepository.AtualizarIdCorpo(generoAtualizado);
+                    return NoContent();
+                }
+                catch (Exception erro)
+                {
+                    return BadRequest(erro);
+                    
+                }
+            }
+
+            return NotFound( new { mensagem = "Nenhum gênero localizado"} );
         }
 
     }
