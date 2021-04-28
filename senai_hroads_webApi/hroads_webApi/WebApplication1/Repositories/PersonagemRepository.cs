@@ -13,7 +13,15 @@ namespace WebApplication1.Repositories
         HroadContext ctx = new HroadContext();
         public void Atualizar(int id, Personagem personagemAtualizado)
         {
-            throw new NotImplementedException();
+            Personagem personagemBuscado = ctx.Personagems.Find(id);
+
+            if (personagemAtualizado.NomePersonagem != null)
+            {
+                personagemBuscado.NomePersonagem = personagemAtualizado.NomePersonagem;
+            }
+
+            ctx.Personagems.Update(personagemBuscado);
+            ctx.SaveChanges();
         }
 
         public Personagem BuscarPorId(int id)
@@ -29,7 +37,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Personagem personagemDeletado = ctx.Personagems.Find(id);
+
+            ctx.Personagems.Remove(personagemDeletado);
+            ctx.SaveChanges();
         }
 
         public List<Personagem> Listar()

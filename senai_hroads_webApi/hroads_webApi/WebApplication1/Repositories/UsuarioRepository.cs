@@ -14,7 +14,15 @@ namespace WebApplication1.Repositories
 
         public void Atualizar(int id, Usuario usuarioAtualizado)
         {
-            throw new NotImplementedException();
+            Usuario usuarioBuscado = ctx.Usuarios.Find(id);
+
+            if (usuarioAtualizado.NomeUsuario != null)
+            {
+                usuarioBuscado.NomeUsuario = usuarioAtualizado.NomeUsuario;
+            }
+
+            ctx.Usuarios.Update(usuarioBuscado);
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorId(int id)
@@ -30,7 +38,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Usuario usuarioDeletado = ctx.Usuarios.Find(id);
+
+            ctx.Usuarios.Remove(usuarioDeletado);
+            ctx.SaveChanges();
         }
 
         public List<Usuario> Listar()

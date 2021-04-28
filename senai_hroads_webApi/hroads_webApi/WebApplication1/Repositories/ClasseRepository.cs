@@ -13,9 +13,15 @@ namespace WebApplication1.Repositories
         HroadContext ctx = new HroadContext();
         public void Atualizar(int id, Classe classeAtualizada)
         {
-            throw new NotImplementedException();
-        }
+            Classe classeBuscada = ctx.Classes.Find(id);
 
+            if (classeAtualizada.NomeClasse != null)
+            {
+                classeBuscada.NomeClasse = classeAtualizada.NomeClasse;
+            }
+            ctx.Classes.Update(classeBuscada);
+            ctx.SaveChanges();
+        }
         public Classe BuscarPorId(int id)
         {
             return ctx.Classes.FirstOrDefault(c => c.IdClasse == id);
@@ -29,7 +35,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Classe classeDeletada = ctx.Classes.Find(id);
+
+            ctx.Classes.Remove(classeDeletada);
+            ctx.SaveChanges();
         }
 
         public List<Classe> Listar()

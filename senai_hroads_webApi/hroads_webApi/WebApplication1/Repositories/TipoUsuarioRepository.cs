@@ -14,7 +14,15 @@ namespace WebApplication1.Repositories
 
         public void Atualizar(int id, TipoUsuario tipoUsuarioAtualizado)
         {
-            throw new NotImplementedException();
+            TipoUsuario tipoBuscado = ctx.TipoUsuarios.Find(id);
+
+            if (tipoUsuarioAtualizado.TipoUsuario1 != null)
+            {
+                tipoBuscado.TipoUsuario1 = tipoUsuarioAtualizado.TipoUsuario1;
+            }
+
+            ctx.TipoUsuarios.Update(tipoBuscado);
+            ctx.SaveChanges();
         }
 
         public TipoUsuario BuscarPorId(int id)
@@ -30,7 +38,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            TipoUsuario tipoDeletado = ctx.TipoUsuarios.Find(id);
+
+            ctx.TipoUsuarios.Remove(tipoDeletado);
+            ctx.SaveChanges();
         }
 
         public List<TipoUsuario> Listar()

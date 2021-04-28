@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,25 @@ namespace WebApplication1.Controllers
             _usuarioRepository.Cadastrar(novoUsuario);
 
             return StatusCode(201);
+        }
+
+
+        //[Authorize (Roles = "1")]
+        [HttpPut ("{id}")]
+        public IActionResult Put (int id, Usuario usuarioAtualizado)
+        {
+            _usuarioRepository.Atualizar(id, usuarioAtualizado);
+
+            return StatusCode(204);
+        }
+
+        [HttpDelete ("{id}")]
+        public IActionResult Delete (int id)
+        {
+            _usuarioRepository.Deletar(id);
+
+            return StatusCode(204);
+                
         }
     }
 }

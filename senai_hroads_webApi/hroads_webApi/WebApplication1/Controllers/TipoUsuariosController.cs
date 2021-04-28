@@ -41,5 +41,21 @@ namespace WebApplication1.Controllers
 
             return StatusCode(201);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put (int id, TipoUsuario tipoUsuarioAtualizado)
+        {
+            _tipoUsuarioRepository.Atualizar(id, tipoUsuarioAtualizado);
+
+            return StatusCode(204);
+        }
+
+        [HttpDelete ("{id}")]
+        public IActionResult Delete (int id)
+        {
+            _tipoUsuarioRepository.Deletar(id);
+
+            return StatusCode(204);
+        }
     }
 }

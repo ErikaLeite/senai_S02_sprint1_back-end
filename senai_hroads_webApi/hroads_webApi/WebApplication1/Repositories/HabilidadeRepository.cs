@@ -13,7 +13,14 @@ namespace WebApplication1.Repositories
         HroadContext ctx = new HroadContext();
         public void Atualizar(int id, Habilidade habilidadeAtualizada)
         {
-            throw new NotImplementedException();
+            Habilidade habilidadeBuscada = ctx.Habilidades.Find(id);
+
+            if (habilidadeAtualizada.NomeHabilidade != null)
+            {
+                habilidadeBuscada.NomeHabilidade = habilidadeAtualizada.NomeHabilidade;
+            }
+            ctx.Habilidades.Update(habilidadeBuscada);
+            ctx.SaveChanges();
         }
 
         public Habilidade BuscarPorId(int id)
@@ -29,7 +36,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Habilidade habilidadeDeletada = ctx.Habilidades.Find(id);
+
+            ctx.Habilidades.Remove(habilidadeDeletada);
+            ctx.SaveChanges();
         }
 
         public List<Habilidade> Listar()

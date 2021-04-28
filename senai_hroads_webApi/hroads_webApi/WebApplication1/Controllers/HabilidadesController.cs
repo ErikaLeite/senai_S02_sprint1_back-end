@@ -42,5 +42,21 @@ namespace WebApplication1.Controllers
 
             return StatusCode(201);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put (int id, Habilidade habilidadeAtualizada)
+        {
+            _habilidadeRepository.Atualizar(id, habilidadeAtualizada);
+
+            return StatusCode(204);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete (int id)
+        {
+            _habilidadeRepository.Deletar(id);
+
+            return StatusCode(204);
+        }
     }
 }

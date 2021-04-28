@@ -42,5 +42,21 @@ namespace WebApplication1.Controllers
 
             return StatusCode(201);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put (int id, Personagem personagemAtualizado)
+        {
+            _personagemRepository.Atualizar(id, personagemAtualizado);
+
+            return StatusCode(204);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete (int id)
+        {
+            _personagemRepository.Deletar(id);
+
+            return StatusCode(204);
+        }
     }
 }

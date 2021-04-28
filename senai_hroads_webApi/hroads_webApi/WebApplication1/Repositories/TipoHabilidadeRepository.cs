@@ -14,7 +14,15 @@ namespace WebApplication1.Repositories
 
         public void Atualizar(int id, TipoHabilidade tipoHabilidadeAtualizado)
         {
-            throw new NotImplementedException();
+            TipoHabilidade tipoHabilidadeBuscado = ctx.TipoHabilidades.Find(id);
+
+            if (tipoHabilidadeAtualizado.TipoHabilidade1 != null)
+            {
+                tipoHabilidadeBuscado.TipoHabilidade1 = tipoHabilidadeAtualizado.TipoHabilidade1;
+            }
+
+            ctx.TipoHabilidades.Update(tipoHabilidadeBuscado);
+            ctx.SaveChanges();
         }
 
         public TipoHabilidade BuscarPorId(int id)
@@ -30,7 +38,10 @@ namespace WebApplication1.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            TipoHabilidade tipoHDeletado = ctx.TipoHabilidades.Find(id);
+
+            ctx.TipoHabilidades.Remove(tipoHDeletado);
+            ctx.SaveChanges();
         }
 
         public List<TipoHabilidade> Listar()
