@@ -65,3 +65,5 @@ C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_
 C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_sprint1_back-end\senai_spMedicalGroup_webApi\senai_spMedicalGroup_webApi\obj\Debug\net5.0\ref\senai_spMedicalGroup_webApi.dll
 C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_sprint1_back-end\senai_spMedicalGroup_webApi\senai_spMedicalGroup_webApi\obj\Debug\net5.0\senai_spMedicalGroup_webApi.pdb
 C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_sprint1_back-end\senai_spMedicalGroup_webApi\senai_spMedicalGroup_webApi\obj\Debug\net5.0\senai_spMedicalGroup_webApi.genruntimeconfig.cache
+C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_sprint1_back-end\senai_spMedicalGroup_webApi\senai_spMedicalGroup_webApi\bin\Debug\net5.0\senai_spMedicalGroup_webApi.xml
+C:\Users\erika\Desktop\PROJETOS SENAI\Semestre_02\Sprint02 - Back-End\senai_S02_sprint1_back-end\senai_spMedicalGroup_webApi\senai_spMedicalGroup_webApi\obj\Debug\net5.0\senai_spMedicalGroup_webApi.xml

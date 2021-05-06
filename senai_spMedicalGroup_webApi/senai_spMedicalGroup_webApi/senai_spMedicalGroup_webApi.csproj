@@ -20,5 +20,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
   </ItemGroup>
+	
+	<ItemGroup>
+		<Folder Include ="Domains\" />
+    </ItemGroup>
+	
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<NoWarn>$(Nowarn);1591</NoWarn>
+    </PropertyGroup>
+			
 
 </Project>
