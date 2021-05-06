@@ -11,9 +11,17 @@ namespace senai_spMedicalGroup_webApi.Repositories
     public class TiposUsuarioRepository : ITiposUsuarioRepository
     {
         SP_Medical_GroupContext ctx = new SP_Medical_GroupContext();
-        public void Atualizar(int id, TiposUsuario tiposUsuarioAtualizado)
+        public void Atualizar(int id, TiposUsuario tiposUAtualizado)
         {
-            throw new NotImplementedException();
+            TiposUsuario tipoUBuscado = BuscarPorId(id);
+
+            if (tiposUAtualizado.Titulo != null)
+            {
+                tipoUBuscado.Titulo = tiposUAtualizado.Titulo;
+            }
+
+            ctx.TiposUsuarios.Update(tipoUBuscado);
+            ctx.SaveChanges();
         }
 
         public TiposUsuario BuscarPorId(int id)
@@ -23,7 +31,9 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public void Cadastrar(TiposUsuario tiposUsuarioNovo)
         {
-            throw new NotImplementedException();
+            ctx.TiposUsuarios.Add(tiposUsuarioNovo);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int id)

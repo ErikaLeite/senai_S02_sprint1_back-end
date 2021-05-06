@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using senai_spMedicalGroup_webApi.Domains;
 using senai_spMedicalGroup_webApi.Interfaces;
 using senai_spMedicalGroup_webApi.Repositories;
 using System;
@@ -45,6 +46,38 @@ namespace senai_spMedicalGroup_webApi.Controllers
             try
             {
                 return Ok(_consultaRepository.BuscarPorId(id));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post(Consulta novaConsulta)
+        {
+            try
+            {
+                _consultaRepository.Cadastrar(novaConsulta);
+
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put (int id, Consulta consultaAtualizada)
+        {
+            try
+            {
+                _consultaRepository.Atualizar(id, consultaAtualizada);
+
+                return StatusCode(204);
             }
             catch (Exception ex)
             {

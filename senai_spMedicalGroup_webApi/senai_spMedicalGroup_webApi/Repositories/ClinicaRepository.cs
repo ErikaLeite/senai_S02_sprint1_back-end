@@ -17,7 +17,16 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public void Atualizar(int id, Clinica clinicaAtualizada)
         {
-            throw new NotImplementedException();
+            Clinica clinicaBuscada = BuscarPorId(id);
+
+            if(clinicaAtualizada.Nome != null)
+            {
+                clinicaBuscada.Nome = clinicaAtualizada.Nome;
+            }
+
+            ctx.Clinicas.Update(clinicaBuscada);
+
+            ctx.SaveChanges();
         }
 
         public Clinica BuscarPorId(int id)
@@ -27,7 +36,9 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public void Cadastrar(Clinica clinicaNova)
         {
-            throw new NotImplementedException();
+            ctx.Clinicas.Add(clinicaNova);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int id)

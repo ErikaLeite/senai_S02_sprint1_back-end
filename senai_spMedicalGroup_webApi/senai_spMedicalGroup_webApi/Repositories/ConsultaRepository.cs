@@ -13,7 +13,16 @@ namespace senai_spMedicalGroup_webApi.Repositories
         SP_Medical_GroupContext ctx = new SP_Medical_GroupContext();
         public void Atualizar(int id, Consulta consultaAtualizada)
         {
-            throw new NotImplementedException();
+            Consulta consultaBuscada = BuscarPorId(id);
+
+            if (consultaAtualizada.Descricao != null)
+            {
+                consultaBuscada.Descricao = consultaAtualizada.Descricao;
+            }
+
+            ctx.Consultas.Update(consultaBuscada);
+
+            ctx.SaveChanges();
         }
 
         public void AtualizarDescricao(int id, string descricao)
@@ -33,7 +42,11 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public void Cadastrar(Consulta consultaNova)
         {
-            throw new NotImplementedException();
+            //Adiciona mais um objeto ao campo
+            ctx.Consultas.Add(consultaNova);
+
+            //salva as alterações no BD
+            ctx.SaveChanges();
         }
 
         public void Deletar(int id)
