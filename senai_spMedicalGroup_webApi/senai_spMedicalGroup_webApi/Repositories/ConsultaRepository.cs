@@ -28,7 +28,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public Consulta BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Consultas.FirstOrDefault(cn => cn.IdConsulta == id);
         }
 
         public void Cadastrar(Consulta consultaNova)
@@ -43,12 +43,12 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public List<Consulta> ListarTodos()
         {
-            throw new NotImplementedException();
+            return ctx.Consultas.ToList();
         }
 
         public List<Consulta> MinhasConsultas(int id)
         {
-            return ctx.Consultas.ToList();
+            throw new NotImplementedException();
         }
     }
 }

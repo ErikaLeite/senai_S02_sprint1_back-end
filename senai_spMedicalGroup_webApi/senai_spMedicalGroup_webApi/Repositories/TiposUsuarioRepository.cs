@@ -18,7 +18,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public TiposUsuario BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.TiposUsuarios.FirstOrDefault(tu => tu.IdTipoUsuario == id);
         }
 
         public void Cadastrar(TiposUsuario tiposUsuarioNovo)

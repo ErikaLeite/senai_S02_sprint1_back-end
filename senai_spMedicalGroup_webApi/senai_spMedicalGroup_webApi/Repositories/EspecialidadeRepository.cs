@@ -18,7 +18,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public Especialidade BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Especialidades.FirstOrDefault(e => e.IdEspecialidade == id);
         }
 
         public void Cadastrar(Especialidade especialidadeNova)

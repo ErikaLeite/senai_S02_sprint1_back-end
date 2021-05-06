@@ -22,7 +22,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public Clinica BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Clinicas.FirstOrDefault(c => c.IdClinica == id);
         }
 
         public void Cadastrar(Clinica clinicaNova)

@@ -18,7 +18,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public Situaco BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Situacoes.FirstOrDefault(s => s.IdSituacao == id);
         }
 
         public void Cadastrar(Situaco situacoNova)

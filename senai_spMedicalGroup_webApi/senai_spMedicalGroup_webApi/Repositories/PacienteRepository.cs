@@ -18,7 +18,7 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public Paciente BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Pacientes.FirstOrDefault(p => p.IdPaciente == id);
         }
 
         public void Cadastrar(Paciente pacienteNovo)
