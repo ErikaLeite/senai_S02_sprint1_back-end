@@ -51,7 +51,8 @@ namespace senai_spMedicalGroup_webApi.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            ctx.Consultas.Remove(BuscarPorId(id));
+            ctx.SaveChanges();
         }
 
         public List<Consulta> ListarTodos()
