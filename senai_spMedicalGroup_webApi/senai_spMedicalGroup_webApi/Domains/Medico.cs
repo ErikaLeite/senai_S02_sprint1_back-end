@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -16,9 +17,12 @@ namespace senai_spMedicalGroup_webApi.Domains
         public int IdUsuario { get; set; }
         public int IdClinica { get; set; }
         public int IdEspecialidade { get; set; }
-        //Devo inserir required nessa sessão?? 
+
+        [Required(ErrorMessage = "Informe o nome do médico")]
         public string Nome { get; set; }
+        [Required(ErrorMessage = "Informe o CRM")]
         public string Crm { get; set; }
+        [Required(ErrorMessage = "Informe o estado onde o médico atua")]
         public string Estado { get; set; }
 
         public virtual Clinica IdClinicaNavigation { get; set; }

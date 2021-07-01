@@ -16,6 +16,7 @@ namespace senai_spMedicalGroup_webApi.Domains
         public int IdEspecialidade { get; set; }
 
         //[Required(ErrorMessage ="Insira um nome para a Especialidade")]  - devo inserir ???? 
+        [Required(ErrorMessage = "Informe o nome da Especialidade")]
         public string Titulo { get; set; }
 
         public virtual ICollection<Medico> Medicos { get; set; }

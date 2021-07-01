@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -13,7 +14,7 @@ namespace senai_spMedicalGroup_webApi.Domains
         }
 
         public int IdSituacao { get; set; }
-        //Devo inserir required nessa sessão?? 
+        [Required(ErrorMessage = "Atualize o status")]
         public string Titulo { get; set; }
 
         public virtual ICollection<Consulta> Consulta { get; set; }
