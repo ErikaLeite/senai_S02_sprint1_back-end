@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_spMedicalGroup_webApi.Domains;
 using senai_spMedicalGroup_webApi.Interfaces;
@@ -40,6 +41,7 @@ namespace senai_spMedicalGroup_webApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -54,6 +56,7 @@ namespace senai_spMedicalGroup_webApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post (Medico novoMedico)
         {
@@ -71,6 +74,7 @@ namespace senai_spMedicalGroup_webApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Medico medicoAtualizado)
         {
@@ -87,6 +91,7 @@ namespace senai_spMedicalGroup_webApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

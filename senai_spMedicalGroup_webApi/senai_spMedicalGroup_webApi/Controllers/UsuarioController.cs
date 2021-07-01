@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_spMedicalGroup_webApi.Domains;
 using senai_spMedicalGroup_webApi.Interfaces;
@@ -21,6 +22,8 @@ namespace senai_spMedicalGroup_webApi.Controllers
         private IUsuarioRepository _usuarioRepository { get; set; }
 
         //instanciamos o obj a ser referenciado entre interface e repositories
+
+        [Authorize(Roles = "1")]
         public UsuarioController()
         {
             _usuarioRepository = new UsuarioRepository();
